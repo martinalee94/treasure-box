@@ -1,16 +1,19 @@
 import os
 from pathlib import Path
 
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+env = environ.Env(DEBUG=(bool, True))
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
-
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # Application definition
 
@@ -21,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "apps.users",
 ]
 
 MIDDLEWARE = [
@@ -87,7 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = "ko-kr"
+LANGUAGE_CODE = "ko-KR"
 
 TIME_ZONE = "Asia/Seoul"
 
