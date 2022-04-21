@@ -18,9 +18,11 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # Application definition
 THIRD_APPS = [
     "dj_rest_auth",
+    "dj_rest_auth.registration",
     "rest_framework",
     "rest_framework.authtoken",
     "allauth",
+    "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.kakao",
@@ -136,3 +138,15 @@ REST_FRAMEWORK = {
     ]
 }
 SITE_ID = 1
+
+# AUTH_USER_MODEL = "users.Member"
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+# Provider specific settings
+# SOCIALACCOUNT_PROVIDERS = {
+#     "google": {"APP": {"client_id": "123", "secret": "456", "key": ""}}
+# }
