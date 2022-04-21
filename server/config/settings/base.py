@@ -6,7 +6,7 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 env = environ.Env(DEBUG=(bool, True))
-environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
+# environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -18,9 +18,11 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # Application definition
 THIRD_APPS = [
     "dj_rest_auth",
+    "dj_rest_auth.registration",
     "rest_framework",
     "rest_framework.authtoken",
     "allauth",
+    "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.kakao",
@@ -30,6 +32,7 @@ LOCAL_APPS = [
 ]
 INSTALLED_APPS = (
     [
+        "corsheaders",
         "django.contrib.sites",
         "django.contrib.admin",
         "django.contrib.auth",
@@ -43,6 +46,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -71,7 +75,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "config.wsgi.application"
-
+# CORS_ORIGIN_WHITELIST = env("CORS_LIST")
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -136,3 +141,15 @@ REST_FRAMEWORK = {
     ]
 }
 SITE_ID = 1
+
+# AUTH_USER_MODEL = "users.Member"
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+# Provider specific settings
+# SOCIALACCOUNT_PROVIDERS = {
+#     "google": {"APP": {"client_id": "123", "secret": "456", "key": ""}}
+# }

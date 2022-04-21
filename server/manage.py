@@ -2,6 +2,9 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from pathlib import Path
+
+import environ
 
 
 def main():
@@ -19,4 +22,5 @@ def main():
 
 
 if __name__ == "__main__":
+    environ.Env.read_env(env_file=os.path.join(Path(__file__).resolve().parent, ".env"))
     main()

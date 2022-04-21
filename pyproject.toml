@@ -13,8 +13,12 @@ dj-rest-auth = "^2.2.4"
 PyMySQL = "^1.0.2"
 mysqlclient = "^2.1.0"
 django-allauth = "^0.50.0"
+isort = "^5.10.1"
+django-cors-headers = "^3.11.0"
 
 [tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+black = {version = "^22.3.0", allow-prereleases = true}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
