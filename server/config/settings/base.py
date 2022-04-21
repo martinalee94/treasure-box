@@ -32,6 +32,7 @@ LOCAL_APPS = [
 ]
 INSTALLED_APPS = (
     [
+        "corsheaders",
         "django.contrib.sites",
         "django.contrib.admin",
         "django.contrib.auth",
@@ -45,6 +46,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -73,7 +75,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "config.wsgi.application"
-
+# CORS_ORIGIN_WHITELIST = env("CORS_LIST")
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
