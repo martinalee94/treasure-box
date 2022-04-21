@@ -148,8 +148,5 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
-
-# Provider specific settings
-# SOCIALACCOUNT_PROVIDERS = {
-#     "google": {"APP": {"client_id": "123", "secret": "456", "key": ""}}
-# }
+STATIC_URL = "/.staticfiles/"
+STATIC_ROOT = os.path.join(BASE_DIR, ".staticfiles")
