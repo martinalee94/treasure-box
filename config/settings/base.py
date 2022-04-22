@@ -148,3 +148,14 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+
+# SOCIAL ACCOUNT
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "APP": {
+            "client_id": env("GOOGLE_CLIENT_ID_S"),
+            "secret": env("GOOGLE_SECRET_KEY_S"),
+            "key": "",
+        }
+    }
+}
