@@ -156,5 +156,12 @@ SOCIALACCOUNT_PROVIDERS = {
             "secret": env("GOOGLE_SECRET_KEY_S"),
             "key": "",
         }
-    }
+    },
+    "kakao": {
+        "APP": {
+            "client_id": env("KAKAO_CLIENT_ID"),
+            "secret": "",
+            "key": "",
+        }
+    },
 }
