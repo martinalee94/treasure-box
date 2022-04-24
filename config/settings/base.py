@@ -18,7 +18,6 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # Application definition
 THIRD_APPS = [
     "dj_rest_auth",
-    "dj_rest_auth.registration",
     "rest_framework",
     "rest_framework.authtoken",
     "allauth",
@@ -140,7 +139,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
     ]
 }
-SITE_ID = 1
+SITE_ID = 2
 
 # AUTH_USER_MODEL = "users.Member"
 
