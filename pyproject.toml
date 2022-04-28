@@ -16,6 +16,8 @@ django-allauth = "^0.50.0"
 isort = "^5.10.1"
 django-cors-headers = "^3.11.0"
 gunicorn = "^20.1.0"
+pytest-django = "^4.5.2"
+pytest-dotenv = "^0.5.2"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
