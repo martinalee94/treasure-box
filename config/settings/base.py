@@ -28,6 +28,8 @@ THIRD_APPS = [
 ]
 LOCAL_APPS = [
     "apps.users.apps.UsersConfig",
+    "apps.reviews.apps.ReviewsConfig",
+    "apps.restaurants.apps.RestaurantsConfig",
 ]
 INSTALLED_APPS = (
     [
