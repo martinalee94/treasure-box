@@ -2,7 +2,7 @@ from flask import Flask
 from app.main.config import config_by_name
 from flask import Flask, Blueprint
 from flask_restx import Api
-from app.main.controller.restaurant_ctrl import api as restaurant_ns
+from app.main.dto.restaurant import api as restaurant_ns
 
 blueprint = Blueprint('api', __name__)
 
